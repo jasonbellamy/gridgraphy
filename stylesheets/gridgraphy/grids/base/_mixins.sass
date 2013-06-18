@@ -1,0 +1,137 @@
+// The (base) mixins below provide a consistent interface to develop with regardless of which grid type is being used.
+
+// @imports
+@import compass/css3/box-sizing
+@import ../../config/config
+@import ../../utils/mixins
+@import ../types/right/mixins
+@import ../types/center/mixins
+@import ../types/left/mixins
+@import ../types/full/mixins
+
+
+// Output the grid row properties for a top level row.
+// @param $max-width The max width this specfic grid row should span.
+@mixin grid-row( $max-width: $grid-max-width )
+  @include grid-clear()
+  width: 100%
+  max-width: $max-width
+  margin-left: auto
+  margin-right: auto
+  @if $grid-show
+    background-color: rgb( 235, 235, 235 )
+    margin-bottom: 5px
+    > *
+      background-color: rgb( 205, 205, 205 )
+
+// Output the grid row properties for a nested row.
+// @param $type [String] The type of grid being used.
+@mixin grid-row-nested( $type: $grid-type )
+  @include grid-clear()
+  width: auto
+  min-width: 0
+  max-width: none
+  @if $type == 'left'
+    @include left-grid-row-nested()
+  @if $type == 'center'
+    @include center-grid-row-nested()
+  @if $type == 'right'
+    @include right-grid-row-nested()
+  @if $type == 'full'
+    @include full-grid-row-nested()
+  @if $grid-show
+    background-color: rgb( 235, 235, 235 )
+    > *
+      background-color: rgb( 155, 155, 155 )
+
+// Output a complete set of properties for a grid column.
+// @param [Integer] Number of columns to span.
+// @param $type [String] The type of grid being used.
+@mixin grid-column( $columns: 0, $type: $grid-type )
+  @include grid-column-base()
+  @include grid-column-width( $columns, $type )
+  @include grid-column-gutter( $type )
+
+// Output base properties for a grid column.
+@mixin grid-column-base()
+  @include box-sizing( border-box )
+  float: left
+  overflow: hidden
+  position: relative
+
+// Output the width property of a grid column.
+// @param [Integer] Number of columns to span.
+// @param $type [String] The type of grid being used.
+@mixin grid-column-width( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @include right-grid-column-width( $columns )
+  @if $type == 'center'
+    @include center-grid-column-width( $columns )
+  @if $type == 'left'
+    @include left-grid-column-width( $columns )
+  @if $type == 'full'
+    @include full-grid-column-width( $columns )
+
+// Output the gutter properties of a grid column.
+// @param $type [String] The type of grid being used.
+@mixin grid-column-gutter( $type: $grid-type )
+  @if $type == 'right'
+    @include right-grid-column-gutter()
+  @if $type == 'center'
+    @include center-grid-column-gutter()
+  @if $type == 'left'
+    @include left-grid-column-gutter()
+  @if $type == 'full'
+    @include full-grid-column-gutter()
+
+// Output properties for a right offset grid column.
+// @param [Integer] Number of columns to offset by.
+// @param $type [String] The type of grid being used.
+@mixin grid-column-offset-right( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @include right-grid-column-offset-right( $columns )
+  @if $type == 'center'
+    @include center-grid-column-offset-right( $columns )
+  @if $type == 'left'
+    @include left-grid-column-offset-right( $columns )
+  @if $type == 'full'
+    @include full-grid-column-offset-right( $columns )
+
+// Output properties for a left offset grid column.
+// @param [Integer] Number of columns to offset by.
+// @param $type [String] The type of grid being used.
+@mixin grid-column-offset-left( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @include right-grid-column-offset-left( $columns )
+  @if $type == 'center'
+    @include center-grid-column-offset-left( $columns )
+  @if $type == 'left'
+    @include left-grid-column-offset-left( $columns )
+  @if $type == 'full'
+    @include full-grid-column-offset-left( $columns )
+
+// Output properties to push a grid column.
+// @param [Integer] Number of columns to push by.
+// @param $type [String] The type of grid being used.
+@mixin grid-column-push( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @include right-grid-column-push( $columns )
+  @if $type == 'center'
+    @include center-grid-column-push( $columns )
+  @if $type == 'left'
+    @include left-grid-column-push( $columns )
+  @if $type == 'full'
+    @include full-grid-column-push( $columns )
+
+// Output properties to pull a grid column.
+// @param [Integer] Number of columns to pull by.
+// @param $type [String] The type of grid being used.
+@mixin grid-column-pull( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @include right-grid-column-pull( $columns )
+  @if $type == 'center'
+    @include center-grid-column-pull( $columns )
+  @if $type == 'left'
+    @include left-grid-column-pull( $columns )
+  @if $type == 'full'
+    @include full-grid-column-pull( $columns )

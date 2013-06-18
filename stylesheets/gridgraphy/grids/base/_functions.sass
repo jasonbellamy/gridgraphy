@@ -1,0 +1,52 @@
+// The (base) functions below provide a consistent interface to develop with regardless of which grid type is being used.
+
+
+// @imports
+@import ../../config/config
+@import ../../utils/functions
+@import ../types/right/functions
+@import ../types/center/functions
+@import ../types/left/functions
+@import ../types/full/functions
+
+
+// Determines a grid column width.
+// @param $columns [Integer] Number of columns to span.
+// @param $type [String] The type of grid being used.
+// @return [Integer] The grid column width.
+@function grid-column-width( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @return right-grid-column-width( $columns )
+  @if $type == 'center'
+    @return center-grid-column-width( $columns )
+  @if $type == 'left'
+    @return left-grid-column-width( $columns )
+  @if $type == 'full'
+    @return full-grid-column-width( $columns )
+
+// Determines a grid column offset.
+// @param $columns [Integer] Number of columns to offset by.
+// @param $type [String] The type of grid being used.
+// @return [Integer] The grid column offset.
+@function grid-column-offset( $columns, $type: $grid-type )
+  @if $type == 'right'
+    @return right-grid-column-offset( $columns )
+  @if $type == 'center'
+    @return center-grid-column-offset( $columns )
+  @if $type == 'left'
+    @return left-grid-column-offset( $columns )
+  @if $type == 'full'
+    @return full-grid-column-offset( $columns )
+
+// Determines a grid column gutter width.
+// @param $type [String] The type of grid being used.
+// @return [Integer] The grid column gutter width.
+@function grid-column-gutter( $type: $grid-type )
+  @if $type == 'right'
+    @return right-grid-column-gutter()
+  @if $type == 'center'
+    @return center-grid-column-gutter()
+  @if $type == 'left'
+    @return left-grid-column-gutter()
+  @if $type == 'full'
+    @return full-grid-column-gutter()

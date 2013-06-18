@@ -1,0 +1,19 @@
+// Center grid functions
+
+
+// Determines a grid column width.
+// @param $columns [Integer] Number of columns to span.
+// @return [Integer] The grid column width.
+@function center-grid-column-width( $columns )
+  @return px-to-percent( $columns * $grid-column-width - $grid-gutter-width, $grid-max-width )
+
+// Determines a grid column offset.
+// @param $columns [Integer] Number of columns to offset by.
+// @return [Integer] The grid column offset.
+@function center-grid-column-offset( $columns )
+  @return px-to-percent( $columns * $grid-column-width + $grid-gutter-width / 2, $grid-max-width )
+
+// Determines a grid column gutter width.
+// @return [Integer] The grid column gutter width.
+@function center-grid-column-gutter()
+  @return px-to-percent( $grid-gutter-width / 2, $grid-max-width )
