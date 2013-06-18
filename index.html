@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Gridgraphy by jasonbellamy</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Gridgraphy</h1>
+        <p class="header">Gridgraphy is a highly configurable, and incredibly flexible Compass extension that enables you to quickly and easily build semantic CSS grids.</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/jasonbellamy/gridgraphy/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/jasonbellamy/gridgraphy/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/jasonbellamy/gridgraphy">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/jasonbellamy">jasonbellamy</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="about" class="anchor" href="#about"><span class="octicon octicon-link"></span></a>About</h1>
+
+<p>Gridgraphy is a highly configurable, and incredibly flexible <a href="http://compass-style.org/">Compass</a> extension
+that enables you to quickly and easily build semantic CSS grids. Whether you're developing a small single page site or architecting a large scale responsive grid system, Gridgraphy will help you get the job done faster.</p>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#types">Types</a></li>
+<li><a href="#mixins">Mixins</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#demo">Demo</a></li>
+</ul><h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<p>Install Gridgraphy by running the following from the command line:</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>gem install gridgraphy
+</pre></div>
+
+<p>Once Gridgraphy is installed you can either create a new Compass project based on Gridgraphy by running the following from the command line:</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>compass create &lt;project_name&gt; -r gridgraphy -u gridgraphy
+</pre></div>
+
+<p>Or you can add Gridgraphy to an existing Compass project by adding the following to your projects <strong>config.rb</strong>:</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'gridgraphy'</span>
+</pre></div>
+
+<h1>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h1>
+
+<h2>
+<a name="basic" class="anchor" href="#basic"><span class="octicon octicon-link"></span></a>Basic</h2>
+
+<p>You can import the Gridgraphy extension by adding the following line to one of your <a href="http://sass-lang.com/">Sass/SCSS</a> stylesheet(s):</p>
+
+<div class="highlight"><pre><span class="k">@import</span> <span class="n">gridgraphy</span>
+</pre></div>
+
+<h3>
+<a name="configurable-variables" class="anchor" href="#configurable-variables"><span class="octicon octicon-link"></span></a>Configurable Variables</h3>
+
+<p>You can mix and match different configurations to acheive the exact type of grid you need.</p>
+
+<ul>
+<li>
+<strong>$grid-type</strong> [default: <strong>full</strong>] - The <a href="#types">type</a> of grid. [<a href="#full-grid">full</a>, <a href="#right-grid">right</a>, <a href="#center-grid">center</a>, <a href="#left-grid">left</a>]</li>
+<li>
+<strong>$grid-max-width</strong> [default: <strong>960px</strong>] - The maximum width of the grid in px.</li>
+<li>
+<strong>$grid-gutter-width</strong> [default: <strong>20px</strong>] - The gutter spacing in px between columns.</li>
+<li>
+<strong>$grid-column-count</strong> [default: <strong>12</strong>] - The total number of columns in the grid.</li>
+<li>
+<strong>$grid-show</strong> [default: <strong>false</strong>] - Set <code>true</code> to highlight the grid row &amp; columns.</li>
+</ul><p><strong>That's it!</strong> You now have access to all of the mixins and functions that Gridgraphy provides.</p>
+
+<hr><h2>
+<a name="scaffolding" class="anchor" href="#scaffolding"><span class="octicon octicon-link"></span></a>Scaffolding</h2>
+
+<p>Scaffolding is a quick way to generate classes for a grid. If you plan on adding your grid classes directly to your markup
+or want to export a pre-made grid as part of an external library, scaffolding can save you a ton of time.</p>
+
+<p>You can create a new compass project using scaffolding by running:</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>compass create &lt;project_name&gt; -r gridgraphy -u gridgraphy/scaffolding
+</pre></div>
+
+<p>Or you can add scaffolding to an existing project by adding the following line to any of your <a href="http://sass-lang.com/">Sass/SCSS</a> stylesheet(s):</p>
+
+<div class="highlight"><pre><span class="k">@import</span> <span class="n">gridgraphy</span><span class="o">/</span><span class="n">scaffolding</span>
+</pre></div>
+
+<h3>
+<a name="configurable-variables-1" class="anchor" href="#configurable-variables-1"><span class="octicon octicon-link"></span></a>Configurable Variables</h3>
+
+<ul>
+<li>
+<strong>$grid-namespace-base</strong> [default: <strong>grid</strong>] - The name of the prefix that will be used for the grids row &amp; columns class.</li>
+<li>
+<strong>$grid-namespace-row</strong> [default: <strong>row</strong>] - The name of the suffix that will be used for the grids row class.</li>
+<li>
+<strong>$grid-namespace-column</strong> [default: <strong>column</strong>] - The name of the suffix that will be used for the grids column class.</li>
+</ul><h1>
+<a name="types" class="anchor" href="#types"><span class="octicon octicon-link"></span></a>Types</h1>
+
+<p>Gridgraphy ships with <strong>4</strong> different types of grid layouts. By default grids are created using the value you've set for the <code>$grid-type</code> <a href="#configurable-variables">configuration variable</a>, but can be set manually on each <code>grid-*</code> mixin or function.</p>
+
+<h2>
+<a name="full-grid" class="anchor" href="#full-grid"><span class="octicon octicon-link"></span></a>Full Grid</h2>
+
+<p>The full grid type does not have a gutter between columns.</p>
+
+<h2>
+<a name="right-grid" class="anchor" href="#right-grid"><span class="octicon octicon-link"></span></a>Right Grid</h2>
+
+<p>The right grid type has its gutter distributed to the right side of each column.</p>
+
+<h2>
+<a name="center-grid" class="anchor" href="#center-grid"><span class="octicon octicon-link"></span></a>Center Grid</h2>
+
+<p>The center grid type has its gutter split in half and evenly distributed to both sides of each column.</p>
+
+<h2>
+<a name="left-grid" class="anchor" href="#left-grid"><span class="octicon octicon-link"></span></a>Left Grid</h2>
+
+<p>The left grid type has its gutter distributed the the left side of each column.</p>
+
+<h1>
+<a name="mixins" class="anchor" href="#mixins"><span class="octicon octicon-link"></span></a>Mixins</h1>
+
+<h4>
+<a name="grid-rowmax-width" class="anchor" href="#grid-rowmax-width"><span class="octicon octicon-link"></span></a>grid-row($max-width)</h4>
+
+<p>Sets an element as the container for your columns.</p>
+
+<ul>
+<li>
+<strong>$max-width</strong> [default: <strong>$grid-max-width</strong>] - The maximum width in pixels the row should span.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-row</span>
+    <span class="k">@include</span><span class="nd"> grid-row</span><span class="p">(</span><span class="mi">960</span><span class="kt">px</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-row-nestedtype" class="anchor" href="#grid-row-nestedtype"><span class="octicon octicon-link"></span></a>grid-row-nested($type)</h4>
+
+<p>Sets an element as the container for your columns inside another column.</p>
+
+<ul>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-row</span>
+    <span class="k">@include</span><span class="nd"> grid-row-nested</span><span class="p">(</span><span class="no">left</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-columncolumns-type" class="anchor" href="#grid-columncolumns-type"><span class="octicon octicon-link"></span></a>grid-column($columns, $type)</h4>
+
+<p>Sets <strong>all</strong> the properties of a column.</p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to span in the row.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-widthcolumns-type" class="anchor" href="#grid-column-widthcolumns-type"><span class="octicon octicon-link"></span></a>grid-column-width($columns, $type)</h4>
+
+<p>Set <strong>only the width</strong> of a column.</p>
+
+<p><strong>Note:</strong> This mixin is called automatically when using the <code>grid-column()</code> mixin. You'll probably only want to use this directly if you need to keep your selectors very DRY.</p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to span in the row.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column-width</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-base" class="anchor" href="#grid-column-base"><span class="octicon octicon-link"></span></a>grid-column-base()</h4>
+
+<p>Set <strong>only the base</strong> properties of a column.</p>
+
+<p><strong>Note:</strong> This mixin is called automatically when using the <code>grid-column()</code> mixin. You'll probably only want to use this directly if you need to keep your selectors very DRY.</p>
+
+<div class="highlight"><pre><span class="err">[</span><span class="na">class^</span><span class="o">=</span><span class="s2">"grid-column-"</span><span class="p">]</span>
+  <span class="k">@include</span><span class="nd"> grid-column-base</span><span class="p">()</span>
+
+<span class="nc">.grid-column-1</span>
+    <span class="k">@include</span><span class="nd"> grid-column-gutter</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nc">.grid-column-2</span>
+    <span class="k">@include</span><span class="nd"> grid-column-gutter</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-guttercolumns-type" class="anchor" href="#grid-column-guttercolumns-type"><span class="octicon octicon-link"></span></a>grid-column-gutter($columns, $type)</h4>
+
+<p>Set <strong>only the gutter</strong> properties of a column.</p>
+
+<p><strong>Note:</strong> This mixin is called automatically when using the <code>grid-column()</code> mixin. You'll probably only want to use this directly if you need to keep your selectors very DRY.</p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to span in the row.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column-gutter</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-offset-rightcolumns-type" class="anchor" href="#grid-column-offset-rightcolumns-type"><span class="octicon octicon-link"></span></a>grid-column-offset-right($columns, $type)</h4>
+
+<p>Sets <strong>all</strong> the properties to offset the column from the right. <em>(prepends empty columns)</em></p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to offset by.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column-offest-right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-offset-leftcolumns-type" class="anchor" href="#grid-column-offset-leftcolumns-type"><span class="octicon octicon-link"></span></a>grid-column-offset-left($columns, $type)</h4>
+
+<p>Sets <strong>all</strong> the properties to offset the column from the left. <em>(appends empty columns)</em></p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to offset by.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column-offest-left</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-pushcolumns-type" class="anchor" href="#grid-column-pushcolumns-type"><span class="octicon octicon-link"></span></a>grid-column-push($columns, $type)</h4>
+
+<p>Sets <strong>all</strong> the properties to push the column from the left. <em>(moves the column without affecting surrounding elements)</em></p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to push by.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column-push</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-pullcolumns-type" class="anchor" href="#grid-column-pullcolumns-type"><span class="octicon octicon-link"></span></a>grid-column-pull($columns, $type)</h4>
+
+<p>Sets <strong>all</strong> the properties to pull the column towards the left. <em>(moves the column without affecting surrounding elements)</em></p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to pull by.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+    <span class="k">@include</span><span class="nd"> grid-column-pull</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+<h1>
+<a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Functions</h1>
+
+<h4>
+<a name="grid-column-widthcolumns-type-1" class="anchor" href="#grid-column-widthcolumns-type-1"><span class="octicon octicon-link"></span></a>grid-column-width($columns, $type)</h4>
+
+<p>Returns the unitless (percentage based) width of a column.</p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to take up in a row.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+  <span class="na">width</span><span class="o">:</span> <span class="si">#{</span><span class="nf">grid-column-width</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="si">}</span><span class="o">%</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-offsetcolumns-type" class="anchor" href="#grid-column-offsetcolumns-type"><span class="octicon octicon-link"></span></a>grid-column-offset($columns, $type)</h4>
+
+<p>Returns the unitless (percentage based) offset width of a column.</p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to offset by.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+  <span class="na">left</span><span class="o">:</span> <span class="si">#{</span><span class="nf">grid-column-offset</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="si">}</span><span class="o">%</span>
+</pre></div>
+
+<hr><h4>
+<a name="grid-column-guttercolumns-type-1" class="anchor" href="#grid-column-guttercolumns-type-1"><span class="octicon octicon-link"></span></a>grid-column-gutter($columns, $type)</h4>
+
+<p>Returns the unitless (percentage based) gutter width of a column.</p>
+
+<ul>
+<li>
+<strong>$columns</strong> - The number of columns to span in the row.</li>
+<li>
+<strong>$type</strong> [default: <strong>$grid-type</strong>] - The <a href="#types">type</a> of grid to be used.</li>
+</ul><div class="highlight"><pre><span class="nc">.grid-column</span>
+  <span class="na">margin-left</span><span class="o">:</span> <span class="si">#{</span><span class="nf">grid-column-gutter</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="si">}</span><span class="o">%</span>
+</pre></div>
+
+<h1>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
+
+<p>Run the following from the command line to build a demo project of the different types of grids provided.</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>compass create &lt;project_name&gt; -r gridgraphy -u gridgraphy/example
+</pre></div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-27590471-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
