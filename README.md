@@ -82,19 +82,12 @@ Or you can add scaffolding to an existing project by adding the following line t
 
 
 # Types
-Gridgraphy ships with **4** different types of grid layouts. By default grids are created using the value you've set for the ```$grid-type``` [configuration variable](#configurable-variables), but can be set manually on each ```grid-*``` mixin or function.
+Gridgraphy ships with **4** different types of layouts. By default grids are created using the value you've set for the ```$grid-type``` [configuration variable](#configurable-variables), but can be set manually on each ```grid-*``` mixin or function.
 
-## Full Grid
-The full grid type does not have a gutter between columns.
-
-## Right Grid
-The right grid type has its gutter distributed to the right side of each column.
-
-## Center Grid
-The center grid type has its gutter split in half and evenly distributed to both sides of each column.
-
-## Left Grid
-The left grid type has its gutter distributed the the left side of each column.
+- **Full**   - The full grid type does not have a gutter between columns.
+- **Right**  - The right grid type has its gutter distributed to the right side of each column.
+- **Center** - The center grid type has its gutter split in half and evenly distributed to both sides of each column.
+- **Left**   - The left grid type has its gutter distributed the the left side of each column.
 
 
 # Mixins
