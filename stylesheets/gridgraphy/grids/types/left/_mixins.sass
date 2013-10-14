@@ -9,11 +9,14 @@
 // Output the width property of a grid column.
 // @param [Integer] Number of columns to span.
 @mixin left-grid-column-width( $columns )
-  width: left-grid-column-width( $columns ) + left-grid-column-gutter()
+  @if $grid-gutter-type == 'margin'
+    width: left-grid-column-width( $columns ) + left-grid-column-gutter()
+  @else
+    width: full-grid-column-width( $columns )
 
 // Output the gutter properties of a grid column.
 @mixin left-grid-column-gutter
-  margin-left: left-grid-column-gutter()
+  #{$grid-gutter-type}-left: left-grid-column-gutter()
 
 // Output properties for a right offset grid column.
 // @param [Integer] Number of columns to offset by.
@@ -23,7 +26,10 @@
 // Output properties for a left offset grid column.
 // @param [Integer] Number of columns to offset by.
 @mixin left-grid-column-offset-left( $columns )
-  margin-left: left-grid-column-offset( $columns )
+  @if $grid-gutter-type == 'margin'
+    margin-left: left-grid-column-offset( $columns )
+  @else
+    margin-left: left-grid-column-offset( $columns ) - left-grid-column-gutter()
 
 // Output properties to push a grid column.
 // @param [Integer] Number of columns to push by.

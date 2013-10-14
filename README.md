@@ -47,6 +47,7 @@ You can import the Gridgraphy extension by adding the following line to one of y
 You can mix and match different configurations to acheive the exact type of grid you need.
 
 - **$grid-type** [default: **full**] - The [type](#types) of grid. [[full](#full-grid), [right](#right-grid), [center](#center-grid), [left](#left-grid)]
+- **$grid-gutter-type** [default: **margin**] - The type of spacing to use for a columns gutter. [margin, padding]
 - **$grid-max-width** [default: **960px**] - The maximum width of the grid in px.
 - **$grid-gutter-width** [default: **20px**] - The gutter spacing in px between columns.
 - **$grid-column-count** [default: **12**] - The total number of columns in the grid.
