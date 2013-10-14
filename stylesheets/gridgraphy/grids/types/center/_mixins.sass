@@ -9,22 +9,31 @@
 // Output the width property of a grid column.
 // @param [Integer] Number of columns to span.
 @mixin center-grid-column-width( $columns )
-  width: center-grid-column-width( $columns )
+  @if $grid-gutter-type == 'margin'
+    width: center-grid-column-width( $columns )
+  @else
+    width: full-grid-column-width( $columns )
 
 // Output the gutter properties of a grid column.
 @mixin center-grid-column-gutter
-  margin-right: center-grid-column-gutter()
-  margin-left: center-grid-column-gutter()
+  #{$grid-gutter-type}-right: center-grid-column-gutter()
+  #{$grid-gutter-type}-left: center-grid-column-gutter()
 
 // Output properties for a right offset grid column.
 // @param [Integer] Number of columns to offset by.
 @mixin center-grid-column-offset-right( $columns )
-  margin-right: center-grid-column-offset( $columns )
+  @if $grid-gutter-type == 'margin'
+    margin-right: center-grid-column-offset( $columns )
+  @else
+    margin-right: center-grid-column-offset( $columns ) - center-grid-column-gutter()
 
 // Output properties for a left offset grid column.
 // @param [Integer] Number of columns to offset by.
 @mixin center-grid-column-offset-left( $columns )
-  margin-left: center-grid-column-offset( $columns )
+  @if $grid-gutter-type == 'margin'
+    margin-left: center-grid-column-offset( $columns )
+  @else
+    margin-left: center-grid-column-offset( $columns ) - center-grid-column-gutter()
 
 // Output properties to push a grid column.
 // @param [Integer] Number of columns to push by.
