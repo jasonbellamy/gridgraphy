@@ -1,7 +1,6 @@
 // The (base) mixins below provide a consistent interface to develop with regardless of which grid type is being used.
 
 // @imports
-@import compass/css3/box-sizing
 @import ../../config/config
 @import ../../utils/mixins
 @import ../types/right/mixins
@@ -57,7 +56,7 @@
 
 // Output base properties for a grid column.
 @mixin grid-column-base()
-  @include box-sizing( border-box )
+  box-sizing: border-box
   float: left
   position: relative
 
