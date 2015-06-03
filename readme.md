@@ -10,7 +10,7 @@
 
 # Getting Started
 
-1. Install Gridgraphy by copying the `gridgraphy` directory in to your project.
+1. Install Gridgraphy by copying the contents of the `lib` to your project.
 2. Import the Grigraphy plugin in to your stylesheets.
 
 ```scss
