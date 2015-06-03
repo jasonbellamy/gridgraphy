@@ -1,46 +1,22 @@
-# About
+# Gridgraphy
 
-Gridgraphy is a highly configurable, and incredibly flexible [Compass](http://compass-style.org/) extension
-that enables you to quickly and easily build semantic CSS grids. Whether you're developing a small single page site or architecting a large scale responsive grid system, Gridgraphy will help you get the job done faster.
+> Gridgraphy is a highly configurable sass plugin that enables you to quickly and easily build semantic CSS grids.
 
-
-- [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Types](#types)
 - [Mixins](#mixins)
 - [Functions](#functions)
-- [Demo](#demo)
-
-
-# Installation
-
-Install Gridgraphy by running the following from the command line:
-
-```bash
-$ gem install gridgraphy
-```
-Once Gridgraphy is installed you can either create a new Compass project based on Gridgraphy by running the following from the command line:
-
-```bash
-$ compass create <project_name> -r gridgraphy -u gridgraphy
-```
-
-Or you can add Gridgraphy to an existing Compass project by adding the following to your projects **config.rb**:
-
-```ruby
-require 'gridgraphy'
-```
 
 
 # Getting Started
 
-## Basic
-
-You can import the Gridgraphy extension by adding the following line to one of your [Sass/SCSS](http://sass-lang.com/) stylesheet(s):
+1. Install Gridgraphy by copying the `gridgraphy` directory in to your project.
+2. Import the Grigraphy plugin in to your stylesheets.
 
 ```scss
 @import gridgraphy
 ```
+
 
 ### Configurable Variables
 
@@ -63,13 +39,7 @@ You can mix and match different configurations to acheive the exact type of grid
 Scaffolding is a quick way to generate classes for a grid. If you plan on adding your grid classes directly to your markup
 or want to export a pre-made grid as part of an external library, scaffolding can save you a ton of time.
 
-You can create a new compass project using scaffolding by running:
-
-```bash
-$ compass create <project_name> -r gridgraphy -u gridgraphy/scaffolding
-```
-
-Or you can add scaffolding to an existing project by adding the following line to any of your [Sass/SCSS](http://sass-lang.com/) stylesheet(s):
+You can add scaffolding to an existing project by adding the following line to any of your [Sass/SCSS](http://sass-lang.com/) stylesheet(s):
 
 ```scss
 @import gridgraphy/scaffolding
@@ -269,11 +239,10 @@ Returns the unitless (percentage based) gutter width of a column.
   margin-left: #{grid-column-gutter(12)}%
 ```
 
-# Demo
+## Contributing
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
 
-Run the following from the command line to build a demo project of the different types of grids provided.
 
-```bash
-$ compass create <project_name> -r gridgraphy -u gridgraphy/example
-```
-
+## License
+Copyright (c) 2015 [Jason Bellamy ](http://jasonbellamy.com)  
+Licensed under the MIT license.
